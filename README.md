@@ -88,7 +88,7 @@ print(authors('http://quotes.toscrape.com/page/3'))
 ```python
 def get_some_quotes(url):
     '''
-    input: url, number of pages to scrap (just scrape the home page if no argument is passed in)
+    input: url, number of pages to scrape (just scrape the home page if no argument is passed in)
     
     return: a list of dictionaries of quotes with their attributes
             [{'quote':'quote_1_text', 'author':'url_of_author_1'}, 
