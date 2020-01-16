@@ -1,4 +1,3 @@
-
 ## Web Scraping
 
 ### Accessing Data Using BeautifulSoup
@@ -7,12 +6,33 @@ Use BeautifulSoup to get quotes, authors, and tags from [Quotes to Read](http://
 
 Before answering these questions, go to the site and inspect the page. Make sure to look at what links there are and how the site is structured.
 
+Reminder of CSS selector rules:
+
+ - Start with HTML Element Type
+ - `.` (period) means "with the following class"
+ - `#` (hash symbol) means "with the following id"
+
+CSS selector examples:
+
+---
+
+Element: `<div id="masterSearchResults">...</div>`
+
+Selector: `"div#masterSearchResults"`
+
+---
+
+Element: `<ul id="authorList"><li>Stephen King</li></ul>` (inner `li` tag)
+
+Selector: `"ul#authorList li"`
+
+---
+
 
 ```python
 from bs4 import BeautifulSoup
+import requests
 ```
-
-1. Get the first author and the path for the author's page as a tuple from the [homepage](http://quotes.toscrape.com/).
 
 
 ```python
@@ -20,9 +40,13 @@ from bs4 import BeautifulSoup
 html_page = requests.get('http://quotes.toscrape.com/') 
 # Pass the page contents to beautiful soup for parsing
 soup = BeautifulSoup(html_page.content, 'html.parser')
+```
 
+1. Get the first author and the path for the author's page as a tuple from the [homepage](http://quotes.toscrape.com/).
+
+
+```python
 # Your code here
-
 ```
 
 2. Write a function to get **all** the authors and href links for the authors from the [homepage](http://quotes.toscrape.com/)
@@ -37,7 +61,7 @@ def authors(url):
     return: a dictionary of of authors and their urls
             {'author_1':'url_of_author_1', 'author_2':'url_of_author_2' ...}
     '''
-    pass
+    # your code here
 ```
 
 
@@ -56,7 +80,6 @@ print(authors('http://quotes.toscrape.com/page/3'))
 
 ```python
 # Your code here
-
 ```
 
 4. Write a function to get all of the quotes from a page.
@@ -71,12 +94,17 @@ def get_some_quotes(url):
             [{'quote':'quote_1_text', 'author':'url_of_author_1'}, 
             {'quote':'quote_2_text', 'author':'url_of_author_2', 'quote_tags':[list_of_quote_2_tags]}, ...]
     '''
-    pass
+    # your code here
 ```
 
 
 ```python
-# set the function to a variable to use later
-quotes_for_mongo = get_some_quotes('http://quotes.toscrape.com/' )
-quotes_for_mongo
+# set the result of the function to a variable
+quotes = get_some_quotes('http://quotes.toscrape.com/' )
+quotes
+```
+
+
+```python
+
 ```
